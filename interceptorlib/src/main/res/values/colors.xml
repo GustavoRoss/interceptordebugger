@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="defaultTextColor">#000000</color>
+    <color name="get_method_color">#4CAF50</color>
+    <color name="post_method_color">#2196F3</color>
+    <color name="put_method_color">#FFC107</color>
+    <color name="delete_method_color">#F44336</color>
+    <color name="patch_method_color">#009688</color>
+</resources>

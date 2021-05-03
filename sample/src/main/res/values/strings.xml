@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">sample</string>
+    <string name="txt_make_request">make request</string>
+    <string name="txt_open_history">open history</string>
+</resources>
