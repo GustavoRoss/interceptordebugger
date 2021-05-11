@@ -39,11 +39,11 @@ class DebugInfo(
      * requestBody.writeTo(buffer)
      * buffer.readUtf8() // json here
      */
-    @Json(name = "requestBody") val requestBody: String,
+    @Json(name = "requestBody") var requestBody: String,
     /**
      * Json response
      */
-    @Json(name = "responseBody") val responseBody: String,
+    @Json(name = "responseBody") var responseBody: String,
     /**
      * Authentication used
      */

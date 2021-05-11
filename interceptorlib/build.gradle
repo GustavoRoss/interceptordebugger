@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
+    id 'maven-publish'
 }
 
 android {
@@ -18,8 +19,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    viewBinding {
-        enabled true
+    buildFeatures {
+        viewBinding true
     }
 
     buildTypes {
@@ -51,4 +52,21 @@ dependencies {
     kapt "com.squareup.moshi:moshi-kotlin-codegen:1.9.3"
 
     api 'com.binaryfork:spanny:1.0.4'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'com.ross.theinterceptor'
+                artifactId = 'final'
+                version = '1.0'
+            }
+        }
+    }
 }

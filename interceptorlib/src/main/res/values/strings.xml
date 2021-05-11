@@ -2,4 +2,5 @@
     <string name="app_name">TheInterceptor</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="txt_interceptor_debug_delete">Delete</string>
+    <string name="txt_interceptor_bug_report">Copy Request to Clipboard</string>
 </resources>

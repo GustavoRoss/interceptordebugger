@@ -13,6 +13,7 @@ class InterceptorDebugStorage(
     companion object {
         const val REQUESTS_INTERCEPTOR_KEY = "REQUESTS_INTERCEPTOR_KEY"
         const val DEFAULT_CACHE_LIMIT = 100
+        const val MAX_JSON_BYTES_ALLOWED = 1024L * 100L * 5L // 5mb
 
         @JvmStatic
         var INSTANCE: InterceptorDebugStorage? = null

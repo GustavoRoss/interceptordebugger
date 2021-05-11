@@ -3,6 +3,9 @@ package com.ross.theinterceptor.ui.interceptorDebugDetail
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.widget.Toast
+import androidx.activity.viewModels
 import com.google.android.material.tabs.TabLayoutMediator
 import com.ross.theinterceptor.DebugInfo
 import com.ross.theinterceptor.InterceptorDebugBaseActivity
@@ -18,6 +21,10 @@ class InterceptorDebugDetailActivity : InterceptorDebugBaseActivity() {
 
     private lateinit var binding: ActivityInterceptorDebugDetailBinding
 
+    private val viewModel: InterceptorDebugDetailViewModel by viewModels {
+        InterceptorDebugDetailViewModelFactory(application)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
@@ -30,11 +37,33 @@ class InterceptorDebugDetailActivity : InterceptorDebugBaseActivity() {
         if (detailExtra != null) {
             handleRequestDetail()
         } else finish()
+        setupMenuAction()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.interceptor_debug_detail_menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
         overridePendingTransition(R.anim.slide_in_top, R.anim.slide_out_top)
+    }
+
+    private fun setupMenuAction() {
+
+        binding.toolbar.setOnMenuItemClickListener { item ->
+            return@setOnMenuItemClickListener when (item.itemId) {
+                R.id.bug_report -> {
+                    detailExtra?.also {
+                        viewModel.addBugReportToClipBoard(it)
+                        Toast.makeText(this, "Log Copied to Clipboard!", Toast.LENGTH_SHORT).show()
+                    }
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     private fun handleRequestDetail() {

@@ -26,13 +26,13 @@ class SpannedJsonMaker {
             try {
                 JSONObject(json).toString(indentSpaces).splitToSequence("\n")
             } catch (e: JSONException) {
-                return SpannedString("Error parsing this json: ${e.message}")
+                return SpannedString("Error parsing this json: ${e.message}\n\n\n $json")
             }
         } else {
             try {
                 JSONArray(json).toString(indentSpaces).splitToSequence("\n")
             } catch (e: JSONException) {
-                return SpannedString("Error parsing this json: ${e.message}")
+                return SpannedString("Error parsing this json: ${e.message}\n\n\n $json")
             }
         }
 
