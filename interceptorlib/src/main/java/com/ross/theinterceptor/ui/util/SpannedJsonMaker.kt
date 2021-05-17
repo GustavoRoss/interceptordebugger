@@ -4,7 +4,7 @@ import android.graphics.Color
 import android.text.SpannedString
 import android.text.style.ForegroundColorSpan
 import androidx.core.text.buildSpannedString
-import com.binaryfork.spanny.Spanny
+import com.ross.theinterceptor.util.Spanny
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject

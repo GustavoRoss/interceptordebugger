@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.binaryfork.spanny.Spanny
 import com.ross.theinterceptor.DebugInfo
 import com.ross.theinterceptor.R
 import com.ross.theinterceptor.databinding.ItemInterceptorDebugInfoBinding
+import com.ross.theinterceptor.util.Spanny
 
 class DebugViewHolder(private val binding: ItemInterceptorDebugInfoBinding) :
     RecyclerView.ViewHolder(binding.root) {
